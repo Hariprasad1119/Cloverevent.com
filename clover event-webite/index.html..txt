@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventJoy - Celebrate Every Moment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6f61;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #ff6f61;
+        }
+
+        .hero {
+            height: 100vh;
+            background: url('https://via.placeholder.com/1500x800') no-repeat center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero button, .service-card button, .booking button {
+            padding: 10px 20px;
+            background: #ff6f61;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hero button:hover, .service-card button:hover, .booking button:hover {
+            background: #e65b50;
+        }
+
+        .services {
+            padding: 80px 50px;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .service-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .service-card {
+            width: 300px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .service-card h3 {
+            margin: 15px 0;
+        }
+
+        .service-card p {
+            color: #666;
+        }
+
+        .booking {
+            padding: 80px 50px;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .booking h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .booking form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .booking label {
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .booking input, .booking select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            background: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">EventJoy</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#book">Book Now</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Celebrate Life’s Moments with Us</h1>
+        <p>From romantic dinners to stunning decorations, we make every occasion unforgettable.</p>
+        <button onclick="scrollToSection('services')">Explore Services</button>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-container">
+            <div class="service-card">
+                <img src="https://via.placeholder.com/300x200" alt="Candlelight Dinner">
+                <h3>Candlelight Dinner</h3>
+                <p>A romantic evening under the stars.</p>
+                <button onclick="scrollToSection('book')">Book Now</button>
+            </div>
+            <div class="service-card">
+                <img src="https://via.placeholder.com/300x200" alt="Balloon Decoration">
+                <h3>Balloon Decoration</h3>
+                <p>Custom setups for any celebration.</p>
+                <button onclick="scrollToSection('book')">Book Now</button>
+            </div>
+            <div class="service-card">
+                <img src="https://via.placeholder.com/300x200" alt="Surprise Party">
+                <h3>Surprise Party</h3>
+                <p>Plan the perfect surprise for your loved ones.</p>
+                <button onclick="scrollToSection('book')">Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section id="book" class="booking">
+        <h2>Book Your Experience</h2>
+        <form id="booking-form" onsubmit="submitBooking(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="date">Date:</label>
+            <input type="date" id="date" required>
+            <label for="service">Select Service:</label>
+            <select id="service" required>
+                <option value="">Choose a service</option>
+                <option value="candlelight">Candlelight Dinner</option>
+                <option value="balloon">Balloon Decoration</option>
+                <option value="surprise">Surprise Party</option>
+            </select>
+            <button type="submit">Submit Booking</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>© 2025 EventJoy. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitBooking(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+            const service = document.getElementById('service').value;
+
+            if (name && date && service) {
+                alert(Booking confirmed!\nName: ${name}\nDate: ${date}\nService: ${service});
+                document.getElementById('booking-form').reset();
+            } else {
+                alert('Please fill out all fields.');
+            }
+        }
+    </script>
+</body>
+</html>
